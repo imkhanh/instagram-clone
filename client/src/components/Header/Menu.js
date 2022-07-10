@@ -24,8 +24,8 @@ const Menu = () => {
 				</div>
 
 				{isVisible && (
-					<div className="absolute top-12 left-full transform -translate-x-full w-48 h-auto border border-gray-100 shadow-md rounded-md">
-						<Link to="/" className="py-2 px-4 text-gray-700 flex items-center hover:text-black hover:bg-gray-50">
+					<div className="absolute top-12 left-full transform -translate-x-full w-52 h-auto border border-gray-100 shadow-md rounded-md">
+						<Link to={`/profile/${auth.user._id}`} onClick={() => setIsVisible(!isVisible)} className="py-2 px-4 text-gray-700 flex items-center hover:text-black hover:bg-gray-50">
 							<BsPersonCircle />
 							<span className="ml-4 text-sm">Profile</span>
 						</Link>
