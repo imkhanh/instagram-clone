@@ -13,7 +13,7 @@ const Menu = () => {
 	const { menuRef, isVisible, setIsVisible } = useClickOutside();
 
 	return (
-		<div className="w-1/3 flex items-center justify-end space-x-5">
+		<div className="w-1/3 md:w-2/3 flex items-center justify-end space-x-4 md:space-x-6">
 			<Link to="/">{location.pathname === '/' ? <IoHome className="text-[26px]" /> : <IoHomeOutline className="text-[26px]" />}</Link>
 			<Link to="/message">{location.pathname === '/message' ? <IoChatbubble className="text-[26px]" /> : <IoChatbubbleOutline className="text-[26px]" />}</Link>
 			<Link to="/explore">{location.pathname === '/explore' ? <IoCompass className="text-[26px]" /> : <IoCompassOutline className="text-[26px]" />}</Link>
@@ -24,7 +24,7 @@ const Menu = () => {
 				</div>
 
 				{isVisible && (
-					<div className="absolute top-12 left-full transform -translate-x-full w-52 h-auto border border-gray-100 shadow-md rounded-md">
+					<div className="absolute top-12 left-full transform -translate-x-full w-52 h-auto bg-white border border-gray-100 shadow-md rounded-md z-10">
 						<Link to={`/profile/${auth.user._id}`} onClick={() => setIsVisible(!isVisible)} className="py-2 px-4 text-gray-700 flex items-center hover:text-black hover:bg-gray-50">
 							<BsPersonCircle />
 							<span className="ml-4 text-sm">Profile</span>

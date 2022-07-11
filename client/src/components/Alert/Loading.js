@@ -1,25 +1,10 @@
 import React from 'react';
-import './style.css';
+import LoadingIcon from '../../loading.gif';
 
 const Loading = () => {
 	return (
-		<div className="fixed inset-0 bg-white z-[70]">
-			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-				<div className="lds-spinner">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-			</div>
+		<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+			<img src={LoadingIcon} alt="loadingIcon" className="w-7" />
 		</div>
 	);
 };

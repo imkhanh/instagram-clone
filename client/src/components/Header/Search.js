@@ -37,31 +37,32 @@ const Search = () => {
 	};
 
 	return (
-		<div className="relative w-1/3 px-4">
+		<div className="relative w-1/3 px-4 md:hidden">
 			<span className={`${search && 'hidden'} absolute top-1/2 left-8 transform -translate-y-1/2 text-black/20`}>
 				<IoSearchOutline className="text-xl" />
 			</span>
+
 			<input type="text" name="search" value={search} onChange={(e) => setSearch(e.target.value)} className={`${search ? 'pl-4' : 'pl-12'}  text-sm w-full h-9 text-black bg-gray-100 rounded-lg focus:outline-none`} placeholder="Search" />
 
-			{loading ? (
-				<span className="absolute top-1/2 right-8 transform -translate-y-1/2 bg-gray-100 text-black/20 cursor-pointer select-none">
+			<span className="absolute top-1/2 right-8 transform -translate-y-1/2 bg-gray-100 text-black/20 cursor-pointer select-none">
+				{loading ? (
 					<img src={LoadingIcon} alt="laodingIcon" className="w-4" />
-				</span>
-			) : (
-				search && (
-					<span onClick={handleClose} className="absolute top-1/2 right-8 transform -translate-y-1/2 text-black/20 cursor-pointer select-none">
-						<IoCloseCircleSharp className="text-xl" />
-					</span>
-				)
-			)}
+				) : (
+					search && (
+						<span onClick={handleClose}>
+							<IoCloseCircleSharp className="text-xl" />
+						</span>
+					)
+				)}
+			</span>
 
 			{search && (
-				<div className="py-2 absolute top-14 left-1/2 transform -translate-x-1/2 max-h-80 w-96 border border-gray-200 shadow-md bg-white rounded-[3px]">
+				<div className="py-2 absolute top-14 left-1/2 transform -translate-x-1/2 h-auto w-96 border border-gray-200 shadow-md bg-white rounded-md">
 					{users.length > 0 ? (
 						users.map((user) => {
 							return (
 								<Link to={`/profile/${user._id}`} key={user._id} onClick={handleClose} className="py-2 px-4 flex items-center bg-white hover:bg-[#fafafa]">
-									<img src={auth.user.avatar} alt={user.username} className="w-12 h-12 rounded-full p-[1px] border border-gray-200" />
+									<img src={auth.user.avatar} alt={user.username} className="w-12 h-12 rounded-full p-[2px] border border-gray-200" />
 									<div className="ml-2">
 										<p className="text-sm font-medium">{user.username}</p>
 										<p className="text-sm text-black/50">{user.fullname}</p>
@@ -70,7 +71,7 @@ const Search = () => {
 							);
 						})
 					) : (
-						<div className="h-full text-sm flex items-center justify-center">User not found</div>
+						<div className="h-full py-8 text-sm text-black/50 flex items-center justify-center">User not found</div>
 					)}
 				</div>
 			)}
