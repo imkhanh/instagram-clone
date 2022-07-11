@@ -59,7 +59,7 @@ const EditProfileModal = ({ user, setOnEdit }) => {
 
 					<div className="flex">
 						<div className="mr-4 w-1/5 flex justify-end">
-							<label className="mb-1 block text-sm font-semibold">Name</label>
+							<label className="mb-1 block text-sm font-semibold">Fullname</label>
 						</div>
 						<div className="w-4/5">
 							<input type="text" name="fullname" value={userData.fullname} onChange={handleChange} className="px-2 w-full h-9 text-sm border border-gray-300 rounded-sm outline-none focus:border-black" />

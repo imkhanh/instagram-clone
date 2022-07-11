@@ -31,26 +31,16 @@ export const editProfileUser =
 			dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
 
 			if (avatar) media = await imageUpload([avatar]);
-			const res = await patchData(
-				`/edit-user/${auth.user._id}`,
-				{
-					...userData,
-					avatar: avatar ? media[0].url : auth.user.avatar,
-				},
-				auth.token
-			);
+			const res = await patchData(`/edit-user/${auth.user._id}`, { ...userData, avatar: avatar ? media[0].url : auth.user.avatar }, auth.token);
 
 			dispatch({
 				type: GLOBALTYPES.AUTH,
 				payload: {
 					...auth,
-					user: {
-						...auth.user,
-						...userData,
-						avatar: avatar ? media[0].url : auth.user.avatar,
-					},
+					user: { ...auth.user, ...userData, avatar: avatar ? media[0].url : auth.user.avatar },
 				},
 			});
+			dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
 
 			dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
 		} catch (error) {

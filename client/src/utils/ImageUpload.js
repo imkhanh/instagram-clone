@@ -22,6 +22,7 @@ export const imageUpload = async (images) => {
 			method: 'POST',
 			body: formData,
 		});
+
 		const data = await res.json();
 		imageArr.push({ public_id: data.public_id, url: data.secure_url });
 	}

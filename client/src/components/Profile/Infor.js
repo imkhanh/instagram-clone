@@ -34,7 +34,7 @@ const Infor = () => {
 							<div className="w-2/3 px-2">
 								<div className="mt-4 flex items-center space-x-10">
 									<h1 className="text-2xl">{user.username}</h1>
-									{auth.user._id === id ? (
+									{auth.user._id === user._id ? (
 										<button onClick={() => setOnEdit(!onEdit)} className="text-sm py-1 px-3 border border-gray-300 rounded-[3px] font-medium">
 											Edit Profile
 										</button>
