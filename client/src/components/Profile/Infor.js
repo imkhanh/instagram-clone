@@ -60,9 +60,10 @@ const Infor = () => {
 									<p className="font-semibold">{user.fullname}</p>
 									<p>{user.email}</p>
 									<p>{user.phone}</p>
-									<a href={user.website} target="_blank" rel="noreferrer">
+									<a href={user.website} target="_blank" rel="noreferrer" className="text-blue-500">
 										{user.website}
 									</a>
+									<p>{user.address}</p>
 									<p>{user.story}</p>
 								</div>
 							</div>

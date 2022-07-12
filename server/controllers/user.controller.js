@@ -25,7 +25,7 @@ const userController = {
 		try {
 			const { fullname, username, phone, website, story, gender, address } = req.body;
 
-			await Users.findByIdAndUpdate({ _id: req.params.id }, { fullname, username, phone, website, story, gender, address }, { new: true });
+			await Users.findOneAndUpdate({ _id: req.params.id }, { fullname, username, phone, website, story, gender, address });
 			return res.json({ msg: 'Profile edited successfully' });
 		} catch (error) {
 			return res.status(500).json({ msg: error.message });
