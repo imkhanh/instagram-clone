@@ -11,8 +11,8 @@ const Alert = () => {
 	return (
 		<>
 			{alert.loading && <Loading />}
-			{alert.error && <Toast msg={{ title: 'Error', body: alert.error }} handleClose={() => dispatch({ type: GLOBALTYPES.ALERT, payload: {} })} bgColor="#e11d48" />}
-			{alert.success && <Toast msg={{ title: 'Success', body: alert.success }} handleClose={() => dispatch({ type: GLOBALTYPES.ALERT, payload: {} })} bgColor="#16a34a" />}
+			{alert.error && <Toast msg={{ title: 'Error', body: alert.error }} handleClose={() => dispatch({ type: GLOBALTYPES.ALERT, payload: {} })} bgColor="#ef4444" />}
+			{alert.success && <Toast msg={{ title: 'Success', body: alert.success }} handleClose={() => dispatch({ type: GLOBALTYPES.ALERT, payload: {} })} bgColor="#22c55e" />}
 		</>
 	);
 };

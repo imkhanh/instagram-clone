@@ -5,6 +5,8 @@ import { imageUpload } from '../../utils/ImageUpload';
 export const PROFILE_TYPES = {
 	LOADING: 'LOADING',
 	GET_USER: 'GET_USER',
+	FOLLOW: 'FOLLOW',
+	UNFOLLOW: 'UNFOLLOW',
 };
 
 export const getProfileUser =
@@ -26,17 +28,18 @@ export const getProfileUser =
 export const editProfileUser =
 	({ userData, auth, avatar }) =>
 	async (dispatch) => {
+		dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
+
 		try {
 			let media;
-			dispatch({ type: PROFILE_TYPES.LOADING, payload: true });
-
 			if (avatar) media = await imageUpload([avatar]);
-
-			const res = await patchData('/edit-user', { ...userData, avatar: avatar ? media[0].url : auth.user.avatar }, auth.token);
-
+			const res = await patchData(`/edit-user/${auth.user._id}`, { ...userData, avatar: avatar ? media[0].url : auth.user.avatar }, auth.token);
 			dispatch({
 				type: GLOBALTYPES.AUTH,
-				payload: { ...auth, user: { ...auth.user, ...userData, avatar: avatar ? media[0].url : auth.user.avatar } },
+				payload: {
+					...auth,
+					user: { ...auth.user, ...userData, avatar: avatar ? media[0].url : auth.user.avatar },
+				},
 			});
 
 			dispatch({ type: PROFILE_TYPES.LOADING, payload: false });

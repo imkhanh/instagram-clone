@@ -23,9 +23,9 @@ const userController = {
 	},
 	editUser: async (req, res) => {
 		try {
-			const { fullname, username, phone, website, story, gender, address } = req.body;
+			const { avatar, fullname, username, phone, website, story, gender, address } = req.body;
 
-			await Users.findOneAndUpdate({ _id: req.params.id }, { fullname, username, phone, website, story, gender, address });
+			await Users.findByIdAndUpdate({ _id: req.params.id }, { avatar, fullname, username, phone, website, story, gender, address });
 			return res.json({ msg: 'Profile edited successfully' });
 		} catch (error) {
 			return res.status(500).json({ msg: error.message });

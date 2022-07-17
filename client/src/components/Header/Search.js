@@ -62,7 +62,7 @@ const Search = () => {
 						users.map((user) => {
 							return (
 								<Link to={`/profile/${user._id}`} key={user._id} onClick={handleClose} className="py-2 px-4 flex items-center bg-white hover:bg-[#fafafa]">
-									<img src={auth.user.avatar} alt={user.username} className="w-12 h-12 rounded-full p-[2px] border border-gray-200" />
+									<img src={user.avatar} alt={user.username} className="w-12 h-12 rounded-full p-[2px] border border-gray-200" />
 									<div className="ml-2">
 										<p className="text-sm font-medium">{user.username}</p>
 										<p className="text-sm text-black/50">{user.fullname}</p>

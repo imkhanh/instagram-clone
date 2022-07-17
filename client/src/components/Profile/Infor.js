@@ -29,12 +29,12 @@ const Infor = () => {
 					return (
 						<div key={user._id} className="py-6 flex items-start">
 							<div className="w-1/3 flex justify-center">
-								<img src={user.avatar} alt={user.username} className="p-1 w-[162px] h-[162px] object-cover border-2 border-gray-200 rounded-full" />
+								<img src={user.avatar} alt={user.username} className="p-1 w-[162px] h-[162px] object-cover border-2 border-black/5 rounded-full" />
 							</div>
 							<div className="w-2/3 px-2">
 								<div className="mt-4 flex items-center space-x-10">
 									<h1 className="text-2xl">{user.username}</h1>
-									{auth.user._id === user._id ? (
+									{user._id === auth.user._id ? (
 										<button onClick={() => setOnEdit(!onEdit)} className="text-sm py-1 px-3 border border-gray-300 rounded-[3px] font-medium">
 											Edit Profile
 										</button>
@@ -67,7 +67,7 @@ const Infor = () => {
 									<p>{user.story}</p>
 								</div>
 							</div>
-							{onEdit && <EditProfileModal user={user} setOnEdit={setOnEdit} />}
+							{onEdit && <EditProfileModal setOnEdit={setOnEdit} />}
 						</div>
 					);
 				})}

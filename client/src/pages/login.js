@@ -31,7 +31,7 @@ const Login = () => {
 	return (
 		<div className="fixed inset-0 bg-[#fafafa] z-50">
 			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[340px] w-full h-auto">
-				<div className="bg-white border border-gray-300 rounded-sm py-4 px-10">
+				<div className="bg-white border border-black/10 rounded-sm py-4 px-10">
 					<div className="mb-8 flex flex-col items-center justify-center">
 						<IoLogoInstagram className="text-3xl" />
 					</div>
@@ -39,13 +39,13 @@ const Login = () => {
 						<div className="mb-4">
 							<label className="mb-1 block text-sm text-black/70">Email Address</label>
 
-							<input type="text" name="email" value={email} onChange={handleChange} className="px-4 text-sm w-full h-10  border border-gray-200 rounded-sm focus:outline-none focus:border-black" />
+							<input type="text" name="email" value={email} onChange={handleChange} className="px-2 text-sm w-full h-10  border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors" />
 						</div>
 						<div className="mb-4">
 							<label className="mb-1 block text-sm text-black/70">Password</label>
 
 							<div className="relative">
-								<input type={showPass ? 'text' : 'password'} name="password" value={password} onChange={handleChange} className="px-4 text-sm w-full h-10  border border-gray-200 rounded-sm focus:outline-none focus:border-black" />
+								<input type={showPass ? 'text' : 'password'} name="password" value={password} onChange={handleChange} className="px-2 text-sm w-full h-10  border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors" />
 
 								<span onClick={() => setShowPass(!showPass)} className="absolute top-1/2 right-2 transform -translate-y-1/2 select-none cursor-pointer text-black/40 hover:text-black text-xs">
 									{showPass ? 'Hide' : 'Show'}
@@ -69,7 +69,7 @@ const Login = () => {
 					</div>
 				</div>
 
-				<div className="mt-4 py-6 flex items-center justify-center bg-white border border-gray-300 rounded-sm">
+				<div className="mt-4 py-6 flex items-center justify-center bg-white border border-black/10 rounded-sm">
 					<p className="text-sm text-black">
 						You don't have an account?
 						<Link to="/register" className="ml-1 text-[#267ccd] font-medium">

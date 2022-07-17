@@ -7,7 +7,7 @@ import InputField from './InputField';
 
 const initialState = { fullname: '', username: '', phone: '', website: '', story: '', gender: '', address: '' };
 
-const EditProfileModal = ({ user, setOnEdit }) => {
+const EditProfileModal = ({ setOnEdit }) => {
 	const [userData, setUserData] = useState(initialState);
 	const { fullname, username, phone, website, story, gender, address } = userData;
 
@@ -23,7 +23,6 @@ const EditProfileModal = ({ user, setOnEdit }) => {
 	const handleChangeAvatar = (e) => {
 		const file = e.target.files[0];
 		const err = checkImage(file);
-
 		if (err) {
 			return dispatch({ type: GLOBALTYPES.ALERT, payload: { error: err } });
 		}
@@ -32,7 +31,7 @@ const EditProfileModal = ({ user, setOnEdit }) => {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		setUserData({ ...setUserData, [name]: value });
+		setUserData({ ...userData, [name]: value });
 	};
 
 	const handleSubmit = (e) => {
@@ -54,7 +53,7 @@ const EditProfileModal = ({ user, setOnEdit }) => {
 							<img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt={auth.user.username} className="p-[1px] w-12 h-12 rounded-full object-cover" />
 						</div>
 						<div className="w-4/5">
-							<span className="font-medium">{user.username}</span>
+							<span className="font-medium">{auth.user.username}</span>
 							<div className="relative">
 								<input type="file" multiple={false} accept="image/*" className="absolute top-1/2 transform -translate-y-1/2 left-0 opacity-0" onChange={handleChangeAvatar} />
 								<span className="text-[#0095F6] text-sm font-medium cursor-pointer">Change profile photo</span>
@@ -76,7 +75,7 @@ const EditProfileModal = ({ user, setOnEdit }) => {
 						<div className="mr-4 w-1/5 flex justify-end"></div>
 						<div className="w-4/5">
 							<div className="mt-2 space-y-2">
-								<span className="text-xs text-black/50 block">In most cases, you'll be able to change your username back to {user.username} for another 14 days.</span>
+								<span className="text-xs text-black/50 block">In most cases, you'll be able to change your username back to {auth.user.username} for another 14 days.</span>
 							</div>
 						</div>
 					</div>

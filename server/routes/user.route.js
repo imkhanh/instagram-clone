@@ -4,6 +4,6 @@ const auth = require('../middleware/auth');
 
 router.get('/search', auth, userController.searchUser);
 router.get('/get-user/:id', auth, userController.getUser);
-router.patch('/edit-user', auth, userController.editUser);
+router.patch('/edit-user/:id', auth, userController.editUser);
 
 module.exports = router;

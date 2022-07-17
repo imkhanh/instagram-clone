@@ -20,19 +20,21 @@ const App = () => {
 	}, [dispatch]);
 
 	return (
-		<BrowserRouter>
+		<>
 			<Alert />
-			{auth.token && <Header />}
-			<main className="pt-[60px] bg-[#fafafa]" style={{ minHeight: 'calc(100vh)' }}>
-				<Routes>
-					<Route path="/" element={auth.token ? <Home /> : <Login />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/:page" element={<PageRender />} />
-					<Route path="/:page/:id" element={<PageRender />} />
-				</Routes>
-			</main>
-		</BrowserRouter>
+			<BrowserRouter>
+				{auth.token && <Header />}
+				<main className="pt-[60px] bg-[#fafafa]" style={{ minHeight: 'calc(100vh)' }}>
+					<Routes>
+						<Route path="/" element={auth.token ? <Home /> : <Login />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/:page" element={<PageRender />} />
+						<Route path="/:page/:id" element={<PageRender />} />
+					</Routes>
+				</main>
+			</BrowserRouter>
+		</>
 	);
 };
 

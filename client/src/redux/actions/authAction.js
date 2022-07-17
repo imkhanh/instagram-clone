@@ -15,9 +15,7 @@ export const loginReq = (data) => async (dispatch) => {
 			},
 		});
 		localStorage.setItem('jwt', JSON.stringify(res.data.access_token));
-
 		dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
-		dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
 	} catch (error) {
 		dispatch({ type: GLOBALTYPES.ALERT, payload: { error: error.response.data.msg } });
 	}

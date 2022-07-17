@@ -26,7 +26,7 @@ const Register = () => {
 	return (
 		<div className="fixed inset-0 bg-[#fafafa] z-50">
 			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[380px] w-full h-auto">
-				<div className="bg-white border border-gray-300 rounded-sm py-4 px-10">
+				<div className="bg-white border border-black/10 rounded-sm py-4 px-10">
 					<div className="mb-8 flex flex-col items-center justify-center">
 						<IoLogoInstagram className="text-3xl" />
 					</div>
@@ -127,7 +127,7 @@ const Register = () => {
 					</form>
 				</div>
 
-				<div className="mt-4 py-6 flex items-center justify-center bg-white border border-gray-300 rounded-sm">
+				<div className="mt-4 py-6 flex items-center justify-center bg-white border border-black/10 rounded-sm">
 					<p className=" text-sm text-black">
 						Already an account?
 						<Link to="/login" className="ml-1 text-[#267ccd] font-medium">
